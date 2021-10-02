@@ -30,13 +30,6 @@ Plugin 'morhetz/gruvbox'
 call vundle#end()
 filetype plugin indent on
 
-let g:airline_theme='wombat'
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
-
 " set a map leader for more key combos
 let mapleader = ','
 
@@ -68,10 +61,18 @@ set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 set background=dark
-colorscheme wombat
+colorscheme gruvbox
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+let g:airline_theme='base16_gruvbox_dark_hard'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+
+
 set autoindent
 set smartindent
 
