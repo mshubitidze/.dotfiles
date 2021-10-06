@@ -1,9 +1,15 @@
 export ZSH="/Users/msh/.oh-my-zsh"
 
-ZSH_THEME="random"
+KEYTIMEOUT=1
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # plugins
-plugins=(git)
+plugins=(
+	git
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+	)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -14,3 +20,5 @@ alias vimconfig="vim ~/.dotfiles/config/init.vim"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sl="ls"
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+
+bindkey -v

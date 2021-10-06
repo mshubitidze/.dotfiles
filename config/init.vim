@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 	" statusline
 	Plug 'itchyny/lightline.vim'
 	Plug 'preservim/nerdtree'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
@@ -33,6 +34,11 @@ set tabstop=4 " the visible width of tabs
 set softtabstop=4 " edit as if the tabs are 4 characters wide
 set shiftwidth=4 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
+
+" swap files
+set noswapfile
+set nobackup
+
 
 " indentation
 set autoindent
