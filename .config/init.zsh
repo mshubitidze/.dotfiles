@@ -1,5 +1,7 @@
 export ZSH="/Users/msh/.oh-my-zsh"
 
+export FZF_DEFAULT_COMMAND='fd --type f'
+
 KEYTIMEOUT=1
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -15,10 +17,11 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias vim="nvim"
-alias zshconfig="vim ~/.dotfiles/config/init.zsh"
-alias vimconfig="vim ~/.dotfiles/config/init.vim"
+alias zshcfg="vim ~/Dotfiles/.config/init.zsh"
+alias vimcfg="vim ~/Dotfiles/.config/init.vim"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sl="ls"
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+alias tmuxcfg="vim ~/.tmux.conf.local"
 
 bindkey -v
