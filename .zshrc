@@ -21,8 +21,6 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias vim="nvim"
-alias zshcfg="vim ~/.dotfiles/.zshrc"
-alias vimcfg="vim ~/.dotfiles/.vimrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sl="ls"
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
