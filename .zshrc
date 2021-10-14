@@ -1,3 +1,7 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export ZSH="/Users/msh/.oh-my-zsh"
 
 export FZF_DEFAULT_COMMAND='fd --type f'
@@ -17,11 +21,15 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias vim="nvim"
-alias zshcfg="vim ~/.dotfiles/.config/.zshrc"
-alias vimcfg="vim ~/.dotfiles/.config/.vimrc"
+alias zshcfg="vim ~/.dotfiles/.zshrc"
+alias vimcfg="vim ~/.dotfiles/.vimrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sl="ls"
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias tmuxcfg="vim ~/.tmux.conf.local"
 
 bindkey -v
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
