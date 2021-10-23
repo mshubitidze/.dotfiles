@@ -127,8 +127,6 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeLimitedSyntax = 1
 
 lua <<EOF
--- you dont need to set any of these options. these are the default ones. only
--- the loading is important
 require('telescope').setup {
 	
 	defaults = {

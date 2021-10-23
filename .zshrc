@@ -21,10 +21,8 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias vim="nvim"
-alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sl="ls"
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
-alias tmuxcfg="vim ~/.tmux.conf.local"
 alias ngrok="/Applications/ngrok"
 
 bindkey -v
