@@ -19,6 +19,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+source ~/.custom_commands.sh
+
 # aliases
 alias vim="nvim"
 alias sl="ls"
