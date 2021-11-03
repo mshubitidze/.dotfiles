@@ -3,7 +3,7 @@ filetype plugin indent on
 syntax enable
 
 " plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim')
 
 	Plug 'bluz71/vim-moonfly-colors'
 	Plug 'itchyny/lightline.vim'

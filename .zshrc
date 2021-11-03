@@ -2,7 +2,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="/Users/msh/.oh-my-zsh"
+export ZSH="/Users/mikheilshubitidze/.oh-my-zsh"
 
 export FZF_DEFAULT_COMMAND='fd --type f'
 
@@ -31,4 +31,4 @@ bindkey -v
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
