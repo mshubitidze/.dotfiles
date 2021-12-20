@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim')
 	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'williamboman/nvim-lsp-installer'
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'preservim/nerdtree' |

@@ -6,18 +6,20 @@
 xcode-select --install
 ```
 
-## Homebrew
-
-```shell
-brew bundle --file ~/.dotfiles/Brewfile
-```
-
 ## create symlinks to config files
 
 ```shell
+ls -s ~/.dotfiles/Brefile ~/Brewfile
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.custom_commands.sh ~/.custom_commands.sh
+```
+
+## Homebrew
+
+```shell
+brew bundle --file ~/Brewfile
 ```
 
 ## Vim
