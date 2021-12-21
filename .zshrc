@@ -16,6 +16,7 @@ plugins=(
 	git
 	zsh-syntax-highlighting
 	zsh-autosuggestions
+	zsh-vi-mode
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -27,8 +28,15 @@ alias vim="nvim"
 alias sl="ls"
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias ngrok="/Applications/ngrok"
-
-bindkey -v
+alias -s txt=vim
+alias -s py=vim
+alias -s js=vim
+alias -g C='| wc -l'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g DN='/dev/null'
+alias -g CFL='for file (*(ND-.)) IFS= read -re < $file'
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
