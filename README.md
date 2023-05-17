@@ -33,7 +33,17 @@ LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.
 - [**Klack**](https://tryklack.com)
 - [**Quickshade**](https://apps.apple.com/us/app/quickshade/id931571202)
 
+### 9. install [Oh my tmux](https://github.com/gpakosz/.tmux)
+```zsh
+git clone https://github.com/gpakosz/.tmux.git ~/
+ln -s -f ~/.tmux/.tmux.conf
+ln -s ~/.dotfiles/.tmux.conf.local ~/.tmux.conf.local
+```
+
 ### 9. symlink dots
+```zsh
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
+```
 ```zsh
 ln -s ~/.dotfiles/nvim/custom ~/.config/nvim/lua/custom
 ```
