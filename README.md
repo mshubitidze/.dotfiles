@@ -16,7 +16,7 @@ brew install --cask alacritty
 - [**Oh My Zsh**](https://ohmyz.sh/)
 - [**Starship**](https://starship.rs/)
 - Maybe try [**prezto**](https://github.com/sorin-ionescu/prezto)
-### 6. install install [**Brewfile**](https://github.com/mshubitidze/.dotfiles/blob/main/Brewfile)
+### 6. install [**Brewfile**](https://github.com/mshubitidze/.dotfiles/blob/main/Brewfile)
 ```zsh
 brew bundle install
 ```
