@@ -124,6 +124,25 @@ tmux_conf_theme_colour_15="#19232f"   # dark gray
 tmux_conf_theme_colour_16="#c94f6d"   # red
 tmux_conf_theme_colour_17="#C0C8D5"   # white
 
+# # nightfly
+# tmux_conf_theme_colour_1="#011627"    # dark gray
+# tmux_conf_theme_colour_2="#7c8f8f"    # gray
+# tmux_conf_theme_colour_3="#a1aab8"    # light gray
+# tmux_conf_theme_colour_4="#82aaff"    # light blue
+# tmux_conf_theme_colour_5="#e3d18a"    # yellow
+# tmux_conf_theme_colour_6="#011627"    # dark gray
+# tmux_conf_theme_colour_7="#acb4c2"    # white
+# tmux_conf_theme_colour_8="#011627"    # dark gray
+# tmux_conf_theme_colour_9="#e3d18a"    # yellow
+# tmux_conf_theme_colour_10="#ff5874"   # pink
+# tmux_conf_theme_colour_11="#a1cd5e"   # green
+# tmux_conf_theme_colour_12="#a1aab8"   # light gray
+# tmux_conf_theme_colour_13="#acb4c2"   # white
+# tmux_conf_theme_colour_14="#011627"   # dark gray
+# tmux_conf_theme_colour_15="#011627"   # dark gray
+# tmux_conf_theme_colour_16="#fc514e"   # red
+# tmux_conf_theme_colour_17="#acb4c2"   # white
+
 # default theme (ansi)
 #tmux_conf_theme_colour_1="colour0"
 #tmux_conf_theme_colour_2="colour8"
@@ -289,10 +308,9 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-# tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
 tmux_conf_theme_status_left=" ❐ #S "
-# tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
-tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
+# tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
@@ -337,13 +355,13 @@ tmux_conf_theme_synchronized_attr="none"
 # battery bar symbols
 tmux_conf_battery_bar_symbol_full="◼"
 tmux_conf_battery_bar_symbol_empty="◻"
-# tmux_conf_battery_bar_symbol_full="♥"
-# tmux_conf_battery_bar_symbol_empty="·"
+#tmux_conf_battery_bar_symbol_full="♥"
+#tmux_conf_battery_bar_symbol_empty="·"
 
 # battery bar length (in number of symbols), possible values are:
 #   - auto
 #   - a number, e.g. 5
-tmux_conf_battery_bar_length="auto"
+tmux_conf_battery_bar_length=5
 
 # battery bar palette, possible values are:
 #   - gradient (default)
@@ -400,8 +418,8 @@ set -g history-limit 10000
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
-set -g status-keys vi
-set -g mode-keys vi
+#set -g status-keys vi
+#set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
 # set -gu prefix2
@@ -452,21 +470,13 @@ tmux_conf_uninstall_plugins_on_reload=true
 
 # to enable a plugin, use the 'set -g @plugin' syntax:
 # visit https://github.com/tmux-plugins for available plugins
-set -g @plugin 'tmux-plugins/tmux-copycat'
-set -g @plugin 'tmux-plugins/tmux-cpu'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @continuum-restore 'on'
+#set -g @plugin 'tmux-plugins/tmux-copycat'
+#set -g @plugin 'tmux-plugins/tmux-cpu'
+#set -g @plugin 'tmux-plugins/tmux-resurrect'
+#set -g @plugin 'tmux-plugins/tmux-continuum'
+#set -g @continuum-restore 'on'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 
-# catpuccin
-# set -g @plugin 'catppuccin/tmux'
-# set -g @plugin 'tmux-plugins/tpm'
-# set -g @catppuccin_left_separator "█"
-# set -g @catppuccin_right_separator "█"
-# set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
-# set -g @catppuccin_user "on"
-# set -g @catppuccin_host "on"
 
 # -- custom variables ----------------------------------------------------------
 
