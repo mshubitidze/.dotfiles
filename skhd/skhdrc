@@ -1,14 +1,14 @@
 # Changing Window Focus
 
 # change window focus within space
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
-alt - h : yabai -m window --focus west
+fn - j : yabai -m window --focus south
+fn - k : yabai -m window --focus north
+fn - l : yabai -m window --focus east
+fn - h : yabai -m window --focus west
 
 # change focus between external displays
-alt - s : yabai display --focus west
-alt - g : yabai display --focus east
+# alt - s : yabai display --focus west
+# alt - g : yabai display --focus east
 
 # Modify layout
 
@@ -55,7 +55,6 @@ shift + alt - p : yabai -m window --space prev;
 shift + alt - n : yabai -m window --space next;
 
 # move window to space #
-
 shift + alt - 1 : yabai -m window --space 1;
 shift + alt - 2 : yabai -m window --space 2;
 shift + alt - 3 : yabai -m window --space 3;
@@ -65,5 +64,5 @@ shift + alt - 6 : yabai -m window --space 6;
 shift + alt - 7 : yabai -m window --space 7;
 
 # -- start/stop yabai --
-ctrl + alt - q : brew services stop yabai
-ctrl + alt - s : brew services start yabai
+ctrl + alt - q : yabai --stop-service
+ctrl + alt - s : yabai --start-service

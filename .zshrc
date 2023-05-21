@@ -2,11 +2,19 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # ZSH_THEME="robbyrussell"
 
-# export EDITOR=lvim
+export EDITOR=lvim
 # export VISUAL=lvim
 
 plugins=(
   git
+  # NOTE: override this part in zsh-vi-mode.sh
+  #       to use both zsh-vi-mode and zsh-syntax-highlighting w/ issues
+  #       ```sh
+  #       # Override standard widgets
+  #       autoload add-zle-hook-widget
+  #       add-zle-hook-widget zle-line-pre-redraw zvm_zle-line-pre-redraw
+  #       ```
+  zsh-vi-mode
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
