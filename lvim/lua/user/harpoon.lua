@@ -1,5 +1,6 @@
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
+
 lvim.keys.normal_mode["<leader>a"] = mark.add_file
 lvim.keys.normal_mode["<M-e>"] = ui.toggle_quick_menu
 lvim.keys.normal_mode["<M-h>"] = function()
