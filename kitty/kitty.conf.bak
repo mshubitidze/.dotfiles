@@ -24,7 +24,7 @@ font_family      JetBrainsMono Nerd Font Mono
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 20.0
+font_size 22.0
 
 #: Font size (in pts)
 
@@ -351,7 +351,7 @@ scrollback_lines 512
 
 #: Mouse {{{
 
-mouse_hide_wait 1.0
+mouse_hide_wait 0.0
 
 #: Hide mouse cursor after the specified number of seconds of the
 #: mouse not being used. Set to zero to disable mouse cursor hiding.
@@ -1066,7 +1066,7 @@ hide_window_decorations yes
 
 #: The foreground and background colors.
 
-# background_opacity 1.0
+# background_opacity 0.92
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -2344,6 +2344,6 @@ macos_quit_when_last_window_closed yes
 
 
 # BEGIN_KITTY_THEME
-# Nightfly
+# Tokyo Night
 include current-theme.conf
 # END_KITTY_THEME

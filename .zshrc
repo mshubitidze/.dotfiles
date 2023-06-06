@@ -21,6 +21,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+alias code="echo 'yeah right'"
+
 alias ave="ansible-vault encrypt"
 alias avd="ansible-vault decrypt"
 
@@ -35,6 +37,7 @@ alias c="clear"
 alias v="lvim"
 
 alias p3="python3"
+alias pp3="pypy3"
 
 alias cat="bat --paging never"
 
@@ -82,3 +85,6 @@ esac
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+# opam configuration
+[[ ! -r /Users/m/.opam/opam-init/init.zsh ]] || source /Users/m/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

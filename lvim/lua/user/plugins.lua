@@ -25,8 +25,11 @@ lvim.plugins = {
     end
   },
   { "theprimeagen/harpoon" },
+  -- colorschemes
   { "EdenEast/nightfox.nvim" },
   { "rebelot/kanagawa.nvim" },
+  { "rose-pine/neovim" },
+  { "folke/tokyonight.nvim", lazy = false },
   {
     "norcalli/nvim-colorizer.lua",
     config = function()

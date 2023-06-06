@@ -28,3 +28,6 @@ yabai -m rule --add app="^Klack$" manage=off
 yabai -m rule --add app="^QuickShade$" manage=off
 yabai -m rule --add app="^Messenger$" manage=off
 yabai -m rule --add app="^Telegram$" manage=off
+yabai -m rule --add app="^Simulator$" manage=off
+yabai -m rule --add app="^WhatsApp$" manage=off
+yabai -m rule --add app="^Zoom$" manage=off

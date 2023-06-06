@@ -86,43 +86,138 @@ tmux_conf_theme=enabled
 # tmux_conf_theme_colour_16="#d70000"   # red
 # tmux_conf_theme_colour_17="#e4e4e4"   # white
 
+# # rose pine
+# tmux_conf_theme_colour_1="#191724"    # dark gray
+# tmux_conf_theme_colour_2="#26233a"    # gray
+# tmux_conf_theme_colour_3="#6e6a86"    # light gray
+# tmux_conf_theme_colour_4="#9ccfd8"    # light blue
+# tmux_conf_theme_colour_5="#f6c177"    # yellow
+# tmux_conf_theme_colour_6="#191724"    # dark gray
+# tmux_conf_theme_colour_7="#e0def4"    # white
+# tmux_conf_theme_colour_8="#191724"    # dark gray
+# tmux_conf_theme_colour_9="#f6c177"    # yellow
+# tmux_conf_theme_colour_10="#ebbcba"   # pink
+# tmux_conf_theme_colour_11="#31748f"   # green
+# tmux_conf_theme_colour_12="#6e6a86"   # light gray
+# tmux_conf_theme_colour_13="#e0def4"   # white
+# tmux_conf_theme_colour_14="#191724"   # dark gray
+# tmux_conf_theme_colour_15="#191724"   # dark gray
+# tmux_conf_theme_colour_16="#eb6f92"   # red
+# tmux_conf_theme_colour_17="#e0def4"   # white
+
 # # kanagawa
 # tmux_conf_theme_colour_1="#1f1f28"    # dark gray
-# tmux_conf_theme_colour_2="#272730"    # gray
-# tmux_conf_theme_colour_3="#9c86bf"    # light gray
-# tmux_conf_theme_colour_4="#7fb4ca"    # light blue
-# tmux_conf_theme_colour_5="#9c86bf"    # yellow
+# tmux_conf_theme_colour_2="#16161d"    # gray
+# tmux_conf_theme_colour_3="#727169"    # light gray
+# tmux_conf_theme_colour_4="#7e9cd8"    # light blue
+# tmux_conf_theme_colour_5="#c0a36e"    # yellow
 # tmux_conf_theme_colour_6="#1f1f28"    # dark gray
-# tmux_conf_theme_colour_7="#a3d4d5"    # white
+# tmux_conf_theme_colour_7="#dcd7ba"    # white
 # tmux_conf_theme_colour_8="#1f1f28"    # dark gray
-# tmux_conf_theme_colour_9="#9c86bf"    # yellow
-# tmux_conf_theme_colour_10="#d8616b"   # pink
-# tmux_conf_theme_colour_11="#98bb6c"   # green
-# tmux_conf_theme_colour_12="#9c86bf"   # light gray
-# tmux_conf_theme_colour_13="#a3d4d5"   # white
+# tmux_conf_theme_colour_9="#c0a36e"    # yellow
+# tmux_conf_theme_colour_10="#ff5d62"   # pink
+# tmux_conf_theme_colour_11="#76946a"   # green
+# tmux_conf_theme_colour_12="#727169"   # light gray
+# tmux_conf_theme_colour_13="#dcd7ba"   # white
 # tmux_conf_theme_colour_14="#1f1f28"   # dark gray
 # tmux_conf_theme_colour_15="#1f1f28"   # dark gray
-# tmux_conf_theme_colour_16="#d8616b"   # red
-# tmux_conf_theme_colour_17="#a3d4d5"   # white
+# tmux_conf_theme_colour_16="#c34043"   # red
+# tmux_conf_theme_colour_17="#dcd7ba"   # white
 
-# nightfox
-tmux_conf_theme_colour_1="#131a24"    # dark gray
-tmux_conf_theme_colour_2="#2f4159"    # gray
-tmux_conf_theme_colour_3="#6d8086"    # light gray
-tmux_conf_theme_colour_4="#719cd6"    # light blue
-tmux_conf_theme_colour_5="#dbc074"    # yellow
-tmux_conf_theme_colour_6="#131a24"    # dark gray
-tmux_conf_theme_colour_7="#cdcecf"    # white
-tmux_conf_theme_colour_8="#131a24"    # dark gray
-tmux_conf_theme_colour_9="#dbc074"    # yellow
-tmux_conf_theme_colour_10="#9d79d6"   # pink
-tmux_conf_theme_colour_11="#81b29a"   # green
-tmux_conf_theme_colour_12="#6d8086"   # light gray
-tmux_conf_theme_colour_13="#cdcecf"   # white
-tmux_conf_theme_colour_14="#131a24"   # dark gray
-tmux_conf_theme_colour_15="#131a24"   # dark gray
-tmux_conf_theme_colour_16="#c94f6d"   # red
-tmux_conf_theme_colour_17="#cdcecf"   # white
+# # kanagawa_light
+# tmux_conf_theme_colour_1="#f2ecbc"    # dark gray
+# tmux_conf_theme_colour_2="#f2ecbc"    # gray
+# tmux_conf_theme_colour_3="#545464"    # light gray
+# tmux_conf_theme_colour_4="#4d699b"    # light blue
+# tmux_conf_theme_colour_5="#6f894e"    # yellow
+# tmux_conf_theme_colour_6="#f2ecbc"    # dark gray
+# tmux_conf_theme_colour_7="#545464"    # white
+# tmux_conf_theme_colour_8="#f2ecbc"    # dark gray
+# tmux_conf_theme_colour_9="#6f894e"    # yellow
+# tmux_conf_theme_colour_10="#b35b79"   # pink
+# tmux_conf_theme_colour_11="#597b75"   # green
+# tmux_conf_theme_colour_12="#545464"   # light gray
+# tmux_conf_theme_colour_13="#545464"   # white
+# tmux_conf_theme_colour_14="#f2ecbc"   # dark gray
+# tmux_conf_theme_colour_15="#f2ecbc"   # dark gray
+# tmux_conf_theme_colour_16="#b35b79"   # red
+# tmux_conf_theme_colour_17="#545464"   # white
+
+# # tokyonight_night
+# tmux_conf_theme_colour_1="#1a1b26"    # dark gray
+# tmux_conf_theme_colour_2="#283457"    # gray
+# tmux_conf_theme_colour_3="#545c7e"    # light gray
+# tmux_conf_theme_colour_4="#7dcfff"    # light blue
+# tmux_conf_theme_colour_5="#e0af68"    # yellow
+# tmux_conf_theme_colour_6="#1a1b26"    # dark gray
+# tmux_conf_theme_colour_7="#c0caf5"    # white
+# tmux_conf_theme_colour_8="#1a1b26"    # dark gray
+# tmux_conf_theme_colour_9="#ff9e64"    # yellow
+# tmux_conf_theme_colour_10="#f7768e"   # pink
+# tmux_conf_theme_colour_11="#9ece6a"   # green
+# tmux_conf_theme_colour_12="#545c7e"   # light gray
+# tmux_conf_theme_colour_13="#c0caf5"   # white
+# tmux_conf_theme_colour_14="#1a1b26"   # dark gray
+# tmux_conf_theme_colour_15="#1a1b26"   # dark gray
+# tmux_conf_theme_colour_16="#db4b4b"   # red
+# tmux_conf_theme_colour_17="#c0caf5"   # white
+
+# tokyonight_day
+tmux_conf_theme_colour_1="#e1e2e7"    # dark gray
+tmux_conf_theme_colour_2="#e1e2e7"    # gray
+tmux_conf_theme_colour_3="#3760bf"    # light gray
+tmux_conf_theme_colour_4="#3760bf"    # light blue
+tmux_conf_theme_colour_5="#587539"    # yellow
+tmux_conf_theme_colour_6="#e1e2e7"    # dark gray
+tmux_conf_theme_colour_7="#3760bf"    # white
+tmux_conf_theme_colour_8="#e1e2e7"    # dark gray
+tmux_conf_theme_colour_9="#587539"    # yellow
+tmux_conf_theme_colour_10="#f52a65"   # pink
+tmux_conf_theme_colour_11="#587539"   # green
+tmux_conf_theme_colour_12="#3760bf"   # light gray
+tmux_conf_theme_colour_13="#3760bf"   # white
+tmux_conf_theme_colour_14="#e1e2e7"   # dark gray
+tmux_conf_theme_colour_15="#e1e2e7"   # dark gray
+tmux_conf_theme_colour_16="#f52a65"   # red
+tmux_conf_theme_colour_17="#3760bf"   # white
+
+# # nightfox
+# tmux_conf_theme_colour_1="#131a24"    # dark gray
+# tmux_conf_theme_colour_2="#2f4159"    # gray
+# tmux_conf_theme_colour_3="#6d8086"    # light gray
+# tmux_conf_theme_colour_4="#719cd6"    # light blue
+# tmux_conf_theme_colour_5="#dbc074"    # yellow
+# tmux_conf_theme_colour_6="#131a24"    # dark gray
+# tmux_conf_theme_colour_7="#cdcecf"    # white
+# tmux_conf_theme_colour_8="#131a24"    # dark gray
+# tmux_conf_theme_colour_9="#dbc074"    # yellow
+# tmux_conf_theme_colour_10="#9d79d6"   # pink
+# tmux_conf_theme_colour_11="#81b29a"   # green
+# tmux_conf_theme_colour_12="#6d8086"   # light gray
+# tmux_conf_theme_colour_13="#cdcecf"   # white
+# tmux_conf_theme_colour_14="#131a24"   # dark gray
+# tmux_conf_theme_colour_15="#131a24"   # dark gray
+# tmux_conf_theme_colour_16="#c94f6d"   # red
+# tmux_conf_theme_colour_17="#cdcecf"   # white
+
+# # dayfox
+# tmux_conf_theme_colour_1="#e4dcd4"    # dark gray
+# tmux_conf_theme_colour_2="#3d2b5a"    # gray
+# tmux_conf_theme_colour_3="#3d2b5a"    # light gray
+# tmux_conf_theme_colour_4="#719cd6"    # light blue
+# tmux_conf_theme_colour_5="#dbc074"    # yellow
+# tmux_conf_theme_colour_6="#e4dcd4"    # dark gray
+# tmux_conf_theme_colour_7="#3d2b5a"    # white
+# tmux_conf_theme_colour_8="#e4dcd4"    # dark gray
+# tmux_conf_theme_colour_9="#dbc074"    # yellow
+# tmux_conf_theme_colour_10="#9d79d6"   # pink
+# tmux_conf_theme_colour_11="#81b29a"   # green
+# tmux_conf_theme_colour_12="#3d2b5a"   # light gray
+# tmux_conf_theme_colour_13="#3d2b5a"   # white
+# tmux_conf_theme_colour_14="#e4dcd4"   # dark gray
+# tmux_conf_theme_colour_15="#e4dcd4"   # dark gray
+# tmux_conf_theme_colour_16="#c94f6d"   # red
+# tmux_conf_theme_colour_17="#3d2b5a"   # white
 
 # # nightfly
 # tmux_conf_theme_colour_1="#011627"    # dark gray

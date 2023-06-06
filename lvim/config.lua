@@ -3,7 +3,8 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
-lvim.colorscheme = "nightfox"
+lvim.colorscheme = "tokyonight-day"
+lvim.transparent_window = false
 
 reload "user.opts"
 reload "user.keymaps"
