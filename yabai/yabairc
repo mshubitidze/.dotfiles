@@ -31,3 +31,5 @@ yabai -m rule --add app="^Telegram$" manage=off
 yabai -m rule --add app="^Simulator$" manage=off
 yabai -m rule --add app="^WhatsApp$" manage=off
 yabai -m rule --add app="^Zoom$" manage=off
+yabai -m rule --add app="^League of Legends$" manage=off
+yabai -m rule --add app="^Riot Client$" manage=off
