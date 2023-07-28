@@ -32,7 +32,8 @@ else
             day_to_night
             exit 1
         fi
-    elif [ "$termNight" = "true" ]; then
+    fi
+    if [ "$termNight" = "true" ]; then
         night_to_day
         exit 1
     fi
