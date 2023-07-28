@@ -18,7 +18,7 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 ```
 
-### 5. install [alacritty](https://alacritty.org/)
+### 5. install [**alacritty**](https://alacritty.org/)
 ```zsh
 brew install --cask alacritty
 ```
@@ -26,7 +26,6 @@ brew install --cask alacritty
 ### 6. install zsh stuff
 - [**Oh My Zsh**](https://ohmyz.sh/)
 - [**Starship**](https://starship.rs/)
-- Maybe try [**prezto**](https://github.com/sorin-ionescu/prezto)
 
 ### 7. install [**Brewfile**](https://github.com/mshubitidze/.dotfiles/blob/main/Brewfile)
 ```zsh

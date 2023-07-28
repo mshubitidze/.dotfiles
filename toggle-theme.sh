@@ -1,40 +1,55 @@
 #!/bin/zsh
 
-night_to_day() {
-    sed -i.bak '146,163 s|^|# |; 165,182 s|# ||' ~/.dotfiles/.tmux.conf.local
-    sed -i.bak 's|tokyonight-night|tokyonight-day|g' ~/.config/lvim/config.lua
-    kitty +kitten themes --reload-in=all tokyo night day
-    tmux run '"$TMUX_PROGRAM" ${TMUX_SOCKET:+-S "$TMUX_SOCKET"} source "$TMUX_CONF"'
-}
+dark_name="tokyonight-night"
+light_name="tokyonight-day"
 
-day_to_night() {
-    sed -i.bak '165,182 s|^|# |; 146,163 s|# ||' ~/.dotfiles/.tmux.conf.local
-    sed -i.bak 's|tokyonight-day|tokyonight-night|g' ~/.config/lvim/config.lua
-    kitty +kitten themes --reload-in=all tokyo night
-    tmux run '"$TMUX_PROGRAM" ${TMUX_SOCKET:+-S "$TMUX_SOCKET"} source "$TMUX_CONF"'
-}
+toggle_theme() {
+    theme="$1"
+    night_start=$(grep -n "${dark_name}" ~/.dotfiles/.tmux.conf.local | head -n 1 | cut -d ':' -f 1)
+    night_end=$((night_start + 17))
+    day_start=$(grep -n "${light_name}" ~/.dotfiles/.tmux.conf.local | head -n 1 | cut -d ':' -f 1)
+    day_end=$((day_start + 17))
 
-if [ "$1" = "day" ]; then
-    night_to_day
-elif [ "$1" = "night" ]; then
-    day_to_night
-else
-    theme=$(osascript -e 'tell application "System Events" to tell appearance preferences to get dark mode')
-
-    if grep -E -q '# # tokyonight_night' ~/.tmux.conf.local; then
-        termNight="false"
-    else
-        termNight="true"
+    if [ "$theme" = "day" ]; then
+        to_comment="${night_start},${night_end}"
+        to_uncomment="${day_start},${day_end}"
+        lvim_from="$dark_name"
+        lvim_to="$light_name"
+      elif [ "$theme" = "night" ]; then
+        to_comment="${day_start},${day_end}"
+        to_uncomment="${night_start},${night_end}"
+        lvim_from="$light_name"
+        lvim_to="$dark_name"
     fi
 
-    if [ "$theme" = "true" ]; then
-        if [ "$termNight" = "false" ]; then
-            day_to_night
+    sed -i.bak "${to_comment}s|^|# |; ${to_uncomment}s|# ||" ~/.dotfiles/.tmux.conf.local
+    sed -i.bak "s|${lvim_from}|${lvim_to}|g" ~/.config/lvim/config.lua
+    kitty +kitten themes --reload-in=all tokyo night "$1"
+    tmux run '"$TMUX_PROGRAM" ${TMUX_SOCKET:+-S "$TMUX_SOCKET"} source "$TMUX_CONF"'
+}
+
+if [ "$1" ]; then
+  toggle_theme "$1"
+  exit 1
+else
+    os_dark=$(osascript -e 'tell application "System Events" to tell appearance preferences to get dark mode')
+
+    if grep -E -q '# # tokyonight-night' ~/.tmux.conf.local; then
+        term_dark="false"
+    else
+        term_dark="true"
+    fi
+
+    if [ "$os_dark" = "true" ]; then
+        if [ "$term_dark" = "false" ]; then
+          toggle_theme night
             exit 1
         fi
-    fi
-    if [ "$termNight" = "true" ]; then
-        night_to_day
         exit 1
     fi
+    if [ "$term_dark" = "true" ]; then
+      toggle_theme day
+        exit 1
+    fi
+    exit 1
 fi
