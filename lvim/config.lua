@@ -1,4 +1,4 @@
-lvim.colorscheme = "tokyonight-day"
+lvim.colorscheme = "tokyonight-night"
 lvim.transparent_window = false
 
 reload "user.opts"

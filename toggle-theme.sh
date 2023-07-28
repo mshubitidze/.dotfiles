@@ -4,13 +4,13 @@ dark_name="tokyonight-night"
 light_name="tokyonight-day"
 
 toggle_theme() {
-    theme="$1"
+    mode="$1"
     night_start=$(grep -n "${dark_name}" ~/.dotfiles/.tmux.conf.local | cut -d ':' -f 1)
     night_end=$((night_start + 17))
     day_start=$(grep -n "${light_name}" ~/.dotfiles/.tmux.conf.local | cut -d ':' -f 1)
     day_end=$((day_start + 17))
 
-    case "$theme" in
+    case "$mode" in
         "day")
             to_comment="${night_start},${night_end}"
             to_uncomment="${day_start},${day_end}"
@@ -24,7 +24,7 @@ toggle_theme() {
             lvim_to="$dark_name"
             ;;
         *)
-            echo "Invalid theme: $theme"
+          echo "Invalid theme mode: $mode (day | night)"
             exit 1
             ;;
     esac
