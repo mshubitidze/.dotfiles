@@ -9,11 +9,9 @@ M.treesitter = {
     "javascript",
     "typescript",
     "tsx",
-    "c",
     "markdown",
     "markdown_inline",
-    "astro",
-    "prisma",
+    "prisma"
   },
   indent = {
     enable = true,
@@ -33,16 +31,11 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
+    "prettier",
     "emmet-ls",
     "tailwindcss-language-server",
-    "prettier",
     "eslint-lsp",
     "prisma-language-server",
-    "astro-language-server",
-
-    -- python
-    "black",
-    "flake8",
   },
 }
 

@@ -40,18 +40,16 @@ local plugins = {
 
   -- Install a plugin
   {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-  },
-
-  {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
     config = function()
       require("better_escape").setup()
     end,
   },
-
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
@@ -74,33 +72,19 @@ local plugins = {
       require("nvim-surround").setup()
     end,
   },
-
-  -- -- Remove the `use` here if you're using folke/lazy.nvim.
-  -- {
-  --   "Exafunction/codeium.vim",
-  --   event = "CursorMoved",
-  --   config = function()
-  --     -- Change '<C-g>' here to any keycode you like.
-  --     vim.keymap.set("i", "<c-g>", function()
-  --       return vim.fn["codeium#Accept"]()
-  --     end, { expr = true })
-  --     vim.keymap.set("i", "<c-;>", function()
-  --       return vim.fn["codeium#CycleCompletions"](1)
-  --     end, { expr = true })
-  --     vim.keymap.set("i", "<c-,>", function()
-  --       return vim.fn["codeium#CycleCompletions"](-1)
-  --     end, { expr = true })
-  --     vim.keymap.set("i", "<c-x>", function()
-  --       return vim.fn["codeium#Clear"]()
-  --     end, { expr = true })
-  --   end,
-  -- },
-
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
   --   enabled = false
   -- },
+
+  -- All NvChad plugins are lazy-loaded by default
+  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
+  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   lazy = false,
+  -- }
 }
 
 return plugins

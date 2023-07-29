@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-dark_name="tokyonight-night"
-light_name="tokyonight-day"
+dark_name="catppuccin-macchiato"
+light_name="catppuccin-latte"
 
 toggle_theme() {
     mode="$1"
@@ -11,27 +11,27 @@ toggle_theme() {
     day_end=$((day_start + 17))
 
     case "$mode" in
-        "day")
+        "latte")
             to_comment="${night_start},${night_end}"
             to_uncomment="${day_start},${day_end}"
             lvim_from="$dark_name"
             lvim_to="$light_name"
             ;;
-        "night")
+        "macchiato")
             to_comment="${day_start},${day_end}"
             to_uncomment="${night_start},${night_end}"
             lvim_from="$light_name"
             lvim_to="$dark_name"
             ;;
         *)
-          echo "Invalid theme mode: $mode (day | night)"
+            echo "Invalid theme mode: $mode (latte | macchiato)"
             exit 1
             ;;
     esac
 
     sed -i.bak "${to_comment}s|^|# |; ${to_uncomment}s|# ||" ~/.dotfiles/.tmux.conf.local
     sed -i.bak "s|${lvim_from}|${lvim_to}|g" ~/.config/lvim/config.lua
-    kitty +kitten themes --reload-in=all tokyo night "$1"
+    kitty +kitten themes --reload-in=all catppuccin kitty "${mode}"
     tmux run '"$TMUX_PROGRAM" ${TMUX_SOCKET:+-S "$TMUX_SOCKET"} source "$TMUX_CONF"'
 }
 
@@ -49,9 +49,9 @@ else
 fi
 
 if [ "$os_dark" = "true" ] && [ "$term_dark" = "false" ]; then
-    toggle_theme night
+    toggle_theme macchiato
 elif [ "$os_dark" = "false" ] && [ "$term_dark" = "true" ]; then
-    toggle_theme day
+    toggle_theme latte
 fi
 
 exit 1

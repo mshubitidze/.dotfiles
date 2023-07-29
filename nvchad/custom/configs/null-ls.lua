@@ -8,17 +8,12 @@ local b = null_ls.builtins
 
 local sources = {
 
-	-- webdev stuff
-	-- b.formatting.deno_fmt, -- faster, but prefer prettier
+  -- webdev stuff
+  b.formatting.prettier,
 
-	b.formatting.prettier,
+  -- Lua
+  b.formatting.stylua,
 
-	-- python
-	b.formatting.black,
-	b.diagnostics.flake8,
-
-	-- Lua
-	b.formatting.stylua,
 }
 
 null_ls.setup {

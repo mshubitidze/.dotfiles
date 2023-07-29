@@ -7,7 +7,6 @@ autocmd("VimResized", {
 })
 
 local o = vim.o
--- local g = vim.g
 
 o.cc = "80"
 o.rnu = true
@@ -16,4 +15,3 @@ o.cul = true
 o.so = 5
 o.siso = 5
 
--- g.codeium_disable_bindings = 1

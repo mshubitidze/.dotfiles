@@ -5,15 +5,14 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "nightfox",
-  theme_toggle = { "nightfox", "kanagawa" },
+  theme = "catppuccin",
+  theme_toggle = { "catppuccin", "one_light" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
-
-  statusline ={
-    theme = "minimal"
-  },
+  statusline = {
+    theme = "default"
+  }
 }
 
 M.plugins = "custom.plugins"
