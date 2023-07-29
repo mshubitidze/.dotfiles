@@ -1,4 +1,4 @@
-lvim.colorscheme = "catppuccin-macchiato"
+lvim.colorscheme = "catppuccin-mocha"
 lvim.transparent_window = false
 
 reload "user.opts"
