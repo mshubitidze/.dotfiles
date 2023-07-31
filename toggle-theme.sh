@@ -35,7 +35,7 @@ toggle_theme() {
 
     sed -i.bak "${to_comment}s|^|# |; ${to_uncomment}s|# ||" ~/.dotfiles/.tmux.conf.local
     sed -i.bak "s|${lvim_from}|${lvim_to}|g" ~/.config/lvim/config.lua
-    kitty +kitten themes --reload-in=all "${theme}" kitty "${mode}"
+    kitty +kitten themes --reload-in=all "${theme} kitty ${mode}"
     tmux run '"$TMUX_PROGRAM" ${TMUX_SOCKET:+-S "$TMUX_SOCKET"} source "$TMUX_CONF"'
 }
 

@@ -10,10 +10,10 @@ formatters.setup {
     ---@usage only start in these filetypes, by default it will attach to all filetypes it supports
     filetypes = { "typescript", "typescriptreact" },
   },
-  -- {
-  --   name = "eslint",
-  --   filetypes = { "typescript", "typescriptreact" }
-  -- },
+  {
+    name = "eslint",
+    filetypes = { "typescript", "typescriptreact" }
+  },
   {
     name = "ocamlformat"
   },
