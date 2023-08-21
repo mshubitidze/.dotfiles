@@ -2,9 +2,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
-export EDITOR=/Users/m/.local/bin/lvim
-export VISUAL=/Users/m/.local/bin/lvim
-
 plugins=(
     git
     # NOTE: override this part in zsh-vi-mode.sh
@@ -20,6 +17,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# BUG:
+alias code="code-insiders"
 
 alias toggle="~/.dotfiles/toggle-theme.sh"
 

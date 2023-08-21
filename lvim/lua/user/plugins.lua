@@ -1,4 +1,5 @@
 lvim.plugins = {
+  { "christoomey/vim-tmux-navigator" },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
@@ -24,19 +25,17 @@ lvim.plugins = {
       })
     end
   },
-  { "theprimeagen/harpoon" },
-  -- colorschemes
-  { "EdenEast/nightfox.nvim" },
-  { "rebelot/kanagawa.nvim" },
-  { "rose-pine/neovim" },
-  { "folke/tokyonight.nvim", lazy = false },
-  { "catppuccin/nvim",       name = "catppuccin", priority = 1000 },
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup()
     end,
-
   },
-  { "christoomey/vim-tmux-navigator" },
+  { "theprimeagen/harpoon" },
+  -- colorschemes
+  { "EdenEast/nightfox.nvim" },
+  { "rebelot/kanagawa.nvim" },
+  { "rose-pine/neovim" },
+  { "folke/tokyonight.nvim",         lazy = false },
+  { "catppuccin/nvim",               name = "catppuccin", priority = 1000 },
 }
