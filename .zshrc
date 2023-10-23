@@ -1,27 +1,23 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
+
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 plugins=(
-    git
-    # NOTE: override this part in zsh-vi-mode.sh
-    #       to use both zsh-vi-mode and zsh-syntax-highlighting w/ issues
-    #       ```sh
-    #       # Override standard widgets
-    #       autoload add-zle-hook-widget
-    #       add-zle-hook-widget zle-line-pre-redraw zvm_zle-line-pre-redraw
-    #       ```
-    zsh-vi-mode
-    zsh-syntax-highlighting
-    zsh-autosuggestions
+	git
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+	zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# BUG:
+alias toggle="~/.config/toggle-theme.sh"
 alias code="code-insiders"
 
-alias toggle="~/.dotfiles/toggle-theme.sh"
+alias shadd="bunx shadcn-ui@latest add"
 
 alias ave="ansible-vault encrypt"
 alias avd="ansible-vault decrypt"
@@ -34,10 +30,9 @@ alias rm=trash
 alias s="source ~/.zshrc"
 alias c="clear"
 
-alias v="lvim"
+alias v="nvim"
 
-alias p3="python3"
-alias pp3="pypy3"
+alias py3="python3"
 
 alias cat="bat --paging never"
 
@@ -48,7 +43,6 @@ alias pnx="pnpx"
 
 alias lg="lazygit"
 
-# GIT ALIASES -----------------------------------------------------------------
 alias g="git"
 alias gs="git status"
 alias gc="git commit"
@@ -61,20 +55,21 @@ alias gchm="git checkout main"
 alias gpum="git pull upstream main"
 alias gb="git branch"
 
-# aoc
 alias aoc="python3 main.py < test.txt && python3 main.py < in.txt"
 alias aot="python3 main.py < test.txt"
 alias aos="python3 main.py < in.txt"
 alias taoc="touch main.py in.txt test.txt"
 
-# general use aliases
-alias ls="exa --git --icons" # just replace ls by exa and allow all other exa arguments
-alias l="ls -lbF --git" #   list, size, type
-alias ll="ls -la --git" # long, all
-alias la="ls -lbhHigUmuSa" # all list
-alias lx="ls -lbhHigUmuSa@" # all list and extended
-alias tree="exa --tree --git" # tree view
-alias lS="exa -1" # one column by just names
+alias ls="exa --git --icons"
+alias l="ls -lbF --git"
+alias ll="ls -la --git"
+alias la="ls -lbhHigUmuSa"
+alias lx="ls -lbhHigUmuSa@"
+alias tree="exa --tree --git"
+alias lS="exa -1"
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -83,16 +78,10 @@ export NVM_DIR="$HOME/.nvm"
 # pnpm
 export PNPM_HOME="/Users/m/Library/pnpm"
 case ":$PATH:" in
-    *":$PNPM_HOME:"*) ;;
-    *) export PATH="$PNPM_HOME:$PATH" ;;
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-
-# opam configuration
-[[ ! -r /Users/m/.opam/opam-init/init.zsh ]] || source /Users/m/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # bun completions
 [ -s "/Users/m/.bun/_bun" ] && source "/Users/m/.bun/_bun"

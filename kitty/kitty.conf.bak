@@ -152,7 +152,8 @@ disable_ligatures never
 
 #:     font_features UnifontMedium +isol -medi -fina -init
 
-# modify_font
+modify_font underline_position 2
+modify_font underline_thickness 250%
 
 #: Modify font characteristics such as the position or thickness of
 #: the underline and strikethrough. The modifications can have the
@@ -2344,6 +2345,6 @@ macos_quit_when_last_window_closed yes
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin Kitty Latte
+# dayfox
 include current-theme.conf
 # END_KITTY_THEME
