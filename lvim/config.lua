@@ -1,4 +1,4 @@
-lvim.colorscheme = "carbonfox"
+lvim.colorscheme = "nightfox"
 
 reload "m.opts"
 reload "m.keymaps"

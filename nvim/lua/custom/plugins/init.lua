@@ -19,15 +19,13 @@ return {
   {
     'norcalli/nvim-colorizer.lua',
   },
-
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000,
+    'EdenEast/nightfox.nvim',
   },
-
   {
-    "EdenEast/nightfox.nvim",
+    'projekt0n/github-nvim-theme'
   },
-
+  {
+    'sindrets/diffview.nvim'
+  }
 }

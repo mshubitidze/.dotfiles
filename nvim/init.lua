@@ -124,7 +124,7 @@ require('lazy').setup({
   { import = 'custom.plugins' },
 }, {})
 
-vim.cmd.colorscheme 'nightfox'
+vim.cmd.colorscheme 'github_dark_high_contrast'
 
 vim.o.hlsearch = true
 
@@ -183,8 +183,6 @@ vim.keymap.set('n', 'C-h', ':<C-U>TmuxNavigateLeft<cr>')
 vim.keymap.set('n', 'C-j', ':<C-U>TmuxNavigateDown<cr>')
 vim.keymap.set('n', 'C-k', ':<C-U>TmuxNavigateUp<cr>')
 vim.keymap.set('n', 'C-l', ':<C-U>TmuxNavigateRight<cr>')
-
-vim.keymap.set('n', '<Tab>', ":Neotree toggle<CR>")
 
 vim.keymap.set('n', '<S-l>', ":bnext<CR>")
 vim.keymap.set('n', '<S-h>', ":bprevious<CR>")
