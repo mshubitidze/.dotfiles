@@ -55,9 +55,9 @@ alias gchm="git checkout main"
 alias gpum="git pull upstream main"
 alias gb="git branch"
 
-alias aoc="python3 main.py < test.txt && python3 main.py < in.txt"
-alias aot="python3 main.py < test.txt"
-alias aos="python3 main.py < in.txt"
+alias aoc="pypy3 main.py < test.txt && pypy3 main.py < in.txt"
+alias aot="pypy3 main.py < test.txt"
+alias aos="pypy3 main.py < in.txt"
 alias taoc="touch main.py in.txt test.txt"
 
 alias ls="exa --git --icons"

@@ -38,4 +38,5 @@ lvim.plugins = {
   { "rose-pine/neovim" },
   { "folke/tokyonight.nvim",         lazy = false },
   { "catppuccin/nvim",               name = "catppuccin", priority = 1000 },
+  { "projekt0n/github-nvim-theme" },
 }

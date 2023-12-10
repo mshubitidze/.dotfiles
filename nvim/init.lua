@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.g.loaded_netrwPlugin = 1
-vim.opt.shortmess:append("I")
+vim.opt.shortmess:append 'I'
 vim.opt.swapfile = false
 vim.opt.showmode = false
 
@@ -49,7 +49,7 @@ require('lazy').setup({
     },
   },
 
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim',   opts = {} },
 
   {
     'lewis6991/gitsigns.nvim',
@@ -66,19 +66,26 @@ require('lazy').setup({
 
         local gs = package.loaded.gitsigns
         vim.keymap.set({ 'n', 'v' }, ']c', function()
-          if vim.wo.diff then return ']c' end
-          vim.schedule(function() gs.next_hunk() end)
+          if vim.wo.diff then
+            return ']c'
+          end
+          vim.schedule(function()
+            gs.next_hunk()
+          end)
           return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
+        end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
         vim.keymap.set({ 'n', 'v' }, '[c', function()
-          if vim.wo.diff then return '[c' end
-          vim.schedule(function() gs.prev_hunk() end)
+          if vim.wo.diff then
+            return '[c'
+          end
+          vim.schedule(function()
+            gs.prev_hunk()
+          end)
           return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
+        end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
       end,
     },
   },
-
 
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -87,16 +94,14 @@ require('lazy').setup({
     config = function()
       require('ibl').setup {
         indent = {
-          char = "┋",
+          char = '▏',
         },
         scope = {
-          enabled = false
-        }
+          enabled = false,
+        },
       }
-    end
+    end,
   },
-
-  { 'numToStr/Comment.nvim', opts = {} },
 
   {
     'nvim-telescope/telescope.nvim',
@@ -114,17 +119,31 @@ require('lazy').setup({
   },
 
   {
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    {
+      'nvim-treesitter/nvim-treesitter',
+      dependencies = {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+      },
+      build = ':TSUpdate',
     },
-    build = ':TSUpdate',
+  },
+
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup {
+        pre_hook = function()
+          return vim.bo.commentstring
+        end,
+      }
+    end,
   },
 
   { import = 'custom.plugins' },
 }, {})
 
-vim.cmd.colorscheme 'github_dark_high_contrast'
+vim.cmd.colorscheme 'github_dark_colorblind'
 
 vim.o.hlsearch = true
 
@@ -176,17 +195,17 @@ vim.keymap.set('n', '<M-j>', "<S-v>:m '>+1<CR>gv=")
 vim.keymap.set('v', '<M-k>', ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', '<M-j>', ":m '>+1<CR>gv=gv")
 
-vim.keymap.set('v', '>', ">gv")
-vim.keymap.set('v', '<', "<gv")
+vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('v', '<', '<gv')
 
 vim.keymap.set('n', 'C-h', ':<C-U>TmuxNavigateLeft<cr>')
 vim.keymap.set('n', 'C-j', ':<C-U>TmuxNavigateDown<cr>')
 vim.keymap.set('n', 'C-k', ':<C-U>TmuxNavigateUp<cr>')
 vim.keymap.set('n', 'C-l', ':<C-U>TmuxNavigateRight<cr>')
 
-vim.keymap.set('n', '<S-l>', ":bnext<CR>")
-vim.keymap.set('n', '<S-h>', ":bprevious<CR>")
-vim.keymap.set('n', '<leader>x', ":bdel<CR>")
+vim.keymap.set('n', '<S-l>', ':bnext<CR>')
+vim.keymap.set('n', '<S-h>', ':bprevious<CR>')
+vim.keymap.set('n', '<leader>x', ':bdel<CR>')
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -329,7 +348,7 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
-require('which-key').register({
+require('which-key').register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
@@ -337,7 +356,7 @@ require('which-key').register({
   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-})
+}
 
 local servers = {
   pyright = {},
@@ -349,6 +368,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  tailwindcss = {},
 }
 
 require('neodev').setup()
@@ -370,7 +390,7 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
-  end
+  end,
 }
 
 local cmp = require 'cmp'

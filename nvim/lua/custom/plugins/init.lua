@@ -13,19 +13,26 @@ return {
     version = '*',
     config = function()
       require('nvim-surround').setup()
-    end
+    end,
   },
 
   {
     'norcalli/nvim-colorizer.lua',
   },
+
   {
     'EdenEast/nightfox.nvim',
   },
+
   {
-    'projekt0n/github-nvim-theme'
+    'projekt0n/github-nvim-theme',
   },
+
   {
-    'sindrets/diffview.nvim'
-  }
+    'sindrets/diffview.nvim',
+  },
+
+  {
+    'folke/trouble.nvim',
+  },
 }

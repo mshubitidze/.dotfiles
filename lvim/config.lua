@@ -1,4 +1,4 @@
-lvim.colorscheme = "nightfox"
+lvim.colorscheme = "github_dark_colorblind"
 
 reload "m.opts"
 reload "m.keymaps"
