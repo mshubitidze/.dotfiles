@@ -2345,6 +2345,6 @@ macos_quit_when_last_window_closed yes
 
 
 # BEGIN_KITTY_THEME
-# GitHub Light Colorblind
+# onedark
 include current-theme.conf
 # END_KITTY_THEME

@@ -1,7 +1,7 @@
 return {
   'Exafunction/codeium.vim',
   config = function()
-    vim.keymap.set('i', '<c-cr>', function()
+    vim.keymap.set('i', '<c-g>', function()
       return vim.fn['codeium#Accept']()
     end, { expr = true })
     vim.keymap.set('i', '<c-;>', function()
