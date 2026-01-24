@@ -1,24 +1,60 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
-  "google_auth": false,
   "agents": {
-    "librarian": {
-      "model": "opencode/glm-4.7-free"
-    },
-    "explore": {
-      "model": "google/antigravity-gemini-3-flash"
+    "sisyphus": {
+      "model": "anthropic/claude-sonnet-4-5"
     },
     "oracle": {
-      "model": "anthropic/claude-opus-4-5"
+      "model": "anthropic/claude-opus-4-5",
+      "variant": "max"
     },
-    "frontend-ui-ux-engineer": {
-      "model": "google/antigravity-gemini-3-pro-high"
+    "librarian": {
+      "model": "anthropic/claude-sonnet-4-5"
     },
-    "document-writer": {
-      "model": "google/antigravity-gemini-3-flash"
+    "explore": {
+      "model": "anthropic/claude-haiku-4-5"
     },
     "multimodal-looker": {
-      "model": "google/antigravity-gemini-3-flash"
+      "model": "google/gemini-3-flash"
+    },
+    "prometheus": {
+      "model": "anthropic/claude-opus-4-5",
+      "variant": "max"
+    },
+    "metis": {
+      "model": "anthropic/claude-opus-4-5",
+      "variant": "max"
+    },
+    "momus": {
+      "model": "anthropic/claude-opus-4-5"
+    },
+    "atlas": {
+      "model": "anthropic/claude-sonnet-4-5"
+    }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "google/gemini-3-pro"
+    },
+    "ultrabrain": {
+      "model": "anthropic/claude-opus-4-5",
+      "variant": "max"
+    },
+    "artistry": {
+      "model": "google/gemini-3-pro",
+      "variant": "max"
+    },
+    "quick": {
+      "model": "anthropic/claude-haiku-4-5"
+    },
+    "unspecified-low": {
+      "model": "anthropic/claude-sonnet-4-5"
+    },
+    "unspecified-high": {
+      "model": "anthropic/claude-sonnet-4-5"
+    },
+    "writing": {
+      "model": "google/gemini-3-flash"
     }
   }
 }
