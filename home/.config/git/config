@@ -45,3 +45,5 @@
 	signingKey = "~/.ssh/id_ed25519.pub"
 [gpg "ssh"]
 	allowedSignersFile = /Users/misho/.ssh/allowed_signers
+[coderabbit]
+	machineId = cli/ba4518d8fb4b4b88961abd1fc3a3f94d

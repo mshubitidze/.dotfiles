@@ -45,8 +45,8 @@ window-height = 30
 window-colorspace = display-p3
 window-padding-color = background
 window-padding-balance = true
-window-padding-x = 0
-window-padding-y = 0
+window-padding-x = 8
+window-padding-y = 8
 
 # Decrease scroll sensitivity
 mouse-scroll-multiplier = 0.4
