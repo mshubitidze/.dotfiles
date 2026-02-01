@@ -1,5 +1,18 @@
 return {
   {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        sources = {
+          explorer = {
+            hidden = true,
+            ignored = true,
+          },
+        },
+      },
+    },
+  },
+  {
     "christoomey/vim-tmux-navigator",
     cmd = {
       "TmuxNavigateLeft",
