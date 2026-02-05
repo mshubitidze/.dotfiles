@@ -5,6 +5,16 @@
     "opencode-antigravity-auth",
     "oh-my-opencode@latest"
   ],
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "ctx7sk-5d501f76-f4e2-4ce6-b748-2b28a1ff202c"
+      },
+      "enabled": true
+    }
+  },
   "provider": {
     "google": {
       "name": "Google",
