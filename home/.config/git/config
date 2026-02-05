@@ -1,3 +1,6 @@
+[include]
+	path = /Users/misho/.config/bat/themes/catppuccin.gitconfig
+
 [branch]
 	sort = "-committerdate"
 
@@ -10,6 +13,18 @@
 [core]
 	editor = "nvim"
 	fsmonitor = true
+  pager = "delta"
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  features = catppuccin-macchiato
+  navigate = true  # use n and N to move between diff sections
+  dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+  conflictStyle = zdiff3
 
 [fetch]
 	prune = true
