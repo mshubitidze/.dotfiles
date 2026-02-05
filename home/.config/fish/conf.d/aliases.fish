@@ -6,3 +6,4 @@ alias tks 'tmux kill-server'
 alias pbc pbcopy
 alias pbp pbpaste
 alias pn pnpm
+alias cat bat
