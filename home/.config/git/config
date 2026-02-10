@@ -49,7 +49,7 @@
 	updateRefs = true
 
 [rerere]
-	enabled = true
+	enabled = false
 
 [tag]
 	gpgSign = true
