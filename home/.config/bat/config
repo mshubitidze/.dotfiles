@@ -1,0 +1,4 @@
+# Auto light/dark; theme names rewritten by the `theme` command.
+--theme="auto"
+--theme-dark="rose-pine"
+--theme-light="rose-pine-dawn"

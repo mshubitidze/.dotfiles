@@ -1,0 +1,6 @@
+git:
+  overrideGpg: true
+  pagers:
+    - colorArg: always
+      pager: delta-theme --paging=never
+# gui.theme comes from a themes/<family>-<light|dark>.yml overlay (lazygit fish wrapper).

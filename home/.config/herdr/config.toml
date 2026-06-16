@@ -1,0 +1,43 @@
+onboarding = false
+
+[experimental]
+pane_history = true
+
+switch_ascii_input_source_in_prefix = true
+[ui.toast]
+delivery = "herdr"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+[keys]
+prefix = "ctrl+a"
+
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = "/Users/misho/.config/herdr/herdr-nav.sh left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = "/Users/misho/.config/herdr/herdr-nav.sh down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = "/Users/misho/.config/herdr/herdr-nav.sh up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = "/Users/misho/.config/herdr/herdr-nav.sh right"
+
+[[keys.command]]
+key = "ctrl+shift+g"
+type = "pane"
+command = "lazygit"
+
+[theme]
+# Managed by the `theme` command; re-run it after a light/dark toggle.
+name = "rose-pine-dawn"

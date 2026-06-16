@@ -1,5 +1,6 @@
 [include]
 	path = /Users/misho/.config/bat/themes/catppuccin.gitconfig
+	path = ~/.config/git/rose-pine-delta.gitconfig
 
 [branch]
 	sort = "-committerdate"
@@ -13,15 +14,13 @@
 [core]
 	editor = "nvim"
 	fsmonitor = true
-  pager = "delta"
+	pager = "delta-theme"
 
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta-theme --color-only
 
 [delta]
-  features = catppuccin-macchiato
-  navigate = true  # use n and N to move between diff sections
-  dark = true      # or light = true, or omit for auto-detection
+	navigate = true  # use n and N to move between diff sections
 
 [merge]
   conflictStyle = zdiff3

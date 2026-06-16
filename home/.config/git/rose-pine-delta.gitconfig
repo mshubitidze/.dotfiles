@@ -1,0 +1,54 @@
+# Rosé Pine delta features, selected by the `delta-theme` wrapper.
+# Diff roles per rose-pine/neovim (add=foam, del=love, change=rose); bg tints tunable.
+
+[delta "rose-pine-dawn"]
+	light = true
+	syntax-theme = rose-pine-dawn
+	blame-palette = "#faf4ed #fffaf3 #f2e9e1 #f4ede8 #dfdad9"
+	commit-decoration-style = "#9893a5" bold box ul
+	file-decoration-style = "#9893a5"
+	file-style = "#575279"
+	hunk-header-decoration-style = "#9893a5" box ul
+	hunk-header-file-style = bold
+	hunk-header-line-number-style = bold "#797593"
+	hunk-header-style = file line-number syntax
+	line-numbers-left-style = "#9893a5"
+	line-numbers-right-style = "#9893a5"
+	line-numbers-zero-style = "#9893a5"
+	line-numbers-minus-style = bold "#b4637a"
+	line-numbers-plus-style = bold "#56949f"
+	minus-style = syntax "#ecd7d6"
+	minus-emph-style = bold syntax "#e2c1c5"
+	plus-style = syntax "#d9e1dd"
+	plus-emph-style = bold syntax "#c1d2d2"
+	map-styles = \
+		bold purple => syntax "#e5d9f0", \
+		bold blue => syntax "#cfe0e6", \
+		bold cyan => syntax "#d3e6e8", \
+		bold yellow => syntax "#f3e6c9"
+
+[delta "rose-pine-main"]
+	dark = true
+	syntax-theme = rose-pine
+	blame-palette = "#191724 #1f1d2e #26233a #21202e #403d52"
+	commit-decoration-style = "#6e6a86" bold box ul
+	file-decoration-style = "#6e6a86"
+	file-style = "#e0def4"
+	hunk-header-decoration-style = "#6e6a86" box ul
+	hunk-header-file-style = bold
+	hunk-header-line-number-style = bold "#908caa"
+	hunk-header-style = file line-number syntax
+	line-numbers-left-style = "#6e6a86"
+	line-numbers-right-style = "#6e6a86"
+	line-numbers-zero-style = "#6e6a86"
+	line-numbers-minus-style = bold "#eb6f92"
+	line-numbers-plus-style = bold "#9ccfd8"
+	minus-style = syntax "#43293a"
+	minus-emph-style = bold syntax "#62354a"
+	plus-style = syntax "#333c48"
+	plus-emph-style = bold syntax "#475763"
+	map-styles = \
+		bold purple => syntax "#2e2840", \
+		bold blue => syntax "#283442", \
+		bold cyan => syntax "#28403f", \
+		bold yellow => syntax "#403a2e"

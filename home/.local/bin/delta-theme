@@ -1,0 +1,14 @@
+#!/bin/sh
+# Pick a delta feature from $THEME_FAMILY + macOS appearance, per git invocation.
+case "${THEME_FAMILY:-rose-pine}" in
+	catppuccin) light=catppuccin-latte; dark=catppuccin-macchiato ;;
+	*)          light=rose-pine-dawn;   dark=rose-pine-main ;;
+esac
+
+if [ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" = Dark ]; then
+	feature=$dark
+else
+	feature=$light
+fi
+
+exec delta --features "$feature" "$@"
