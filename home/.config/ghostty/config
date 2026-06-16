@@ -1,5 +1,5 @@
 # Ghostty theme
-theme = Catppuccin Macchiato
+theme = dark:Rose Pine,light:Rose Pine Dawn
 
 # Updates
 auto-update-channel = tip
@@ -30,3 +30,4 @@ window-padding-y = 8
 # Decrease scroll sensitivity
 mouse-scroll-multiplier = 0.4
 
+keybind = shift+enter=text:\x1b\r
