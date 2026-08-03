@@ -1,8 +1,27 @@
 #!/bin/sh
-# Pick a delta feature from $THEME_FAMILY + macOS appearance, per git invocation.
-case "${THEME_FAMILY:-rose-pine}" in
-	catppuccin) light=catppuccin-latte; dark=catppuccin-macchiato ;;
-	*)          light=rose-pine-dawn;   dark=rose-pine-main ;;
+# Select a Delta feature from persistent family state and macOS appearance.
+family=rose-pine
+if [ -r "$HOME/.config/theme/family" ]; then
+	family=$(tr -d '[:space:]' <"$HOME/.config/theme/family")
+fi
+
+case "$family" in
+	rose-pine)
+		light=rose-pine-dawn
+		dark=rose-pine-main
+		;;
+	catppuccin)
+		light=catppuccin-latte
+		dark=catppuccin-macchiato
+		;;
+	oxocarbon)
+		light=oxocarbon-light
+		dark=oxocarbon-dark
+		;;
+	*)
+		printf 'delta-theme: unknown theme family: %s\n' "$family" >&2
+		exit 2
+		;;
 esac
 
 if [ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" = Dark ]; then

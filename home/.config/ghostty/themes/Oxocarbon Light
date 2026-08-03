@@ -1,0 +1,23 @@
+# Oxocarbon Light — matched to the oxocarbon.nvim reference implementation.
+background = #ffffff
+foreground = #37474f
+cursor-color = #37474f
+cursor-text = #ffffff
+selection-background = #0f62fe
+selection-foreground = #f2f4f8
+palette = 0=#f3f3f3
+palette = 1=#ee5396
+palette = 2=#42be65
+palette = 3=#ff6f00
+palette = 4=#0f62fe
+palette = 5=#673ab7
+palette = 6=#08bdba
+palette = 7=#37474f
+palette = 8=#161616
+palette = 9=#ee5396
+palette = 10=#42be65
+palette = 11=#ff6f00
+palette = 12=#0f62fe
+palette = 13=#be95ff
+palette = 14=#08bdba
+palette = 15=#161616

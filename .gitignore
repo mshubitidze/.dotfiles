@@ -1,0 +1,2 @@
+# Machine-local Fish universal variables (PATH, plugin lists, colors, etc.).
+home/.config/fish/fish_variables

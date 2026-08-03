@@ -10,6 +10,7 @@ delivery = "herdr"
 [ui]
 show_agent_labels_on_pane_borders = true
 
+agent_panel_sort = "priority"
 [keys]
 prefix = "ctrl+a"
 
@@ -33,11 +34,25 @@ key = "ctrl+l"
 type = "shell"
 command = "/Users/misho/.config/herdr/herdr-nav.sh right"
 
+# via fish so the themed `lazygit` function runs (a bare command bypasses it).
 [[keys.command]]
 key = "ctrl+shift+g"
 type = "pane"
-command = "lazygit"
+command = "fish -c lazygit"
+
+[[keys.command]]
+key = "ctrl+shift+n"
+type = "pane"
+command = "nvim"
 
 [theme]
-# Managed by the `theme` command; re-run it after a light/dark toggle.
-name = "rose-pine-dawn"
+# Resolve semantic UI colors through Ghostty's active 16-color palette.
+name = "terminal"
+
+auto_switch = false
+[theme.custom]
+# Herdr's terminal theme uses ANSI bright-black for selected-item contrast,
+# which is too dark in light palettes. ANSI black tracks each theme's first
+# surface layer instead (#262626 in Oxocarbon Dark / #f3f3f3 in Light).
+surface0 = "black"
+surface_dim = "black"

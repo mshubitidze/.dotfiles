@@ -1,49 +1,59 @@
-function theme --description 'Theme family (rose-pine|catppuccin); no arg = re-sync to current state'
-    set -l family rose-pine
-    set -q THEME_FAMILY; and set family $THEME_FAMILY
+function theme --description 'Select and synchronize a terminal theme family'
+    set -l family (__theme_family)
     if set -q argv[1]
-        if not contains -- $argv[1] rose-pine catppuccin
-            echo "usage: theme [rose-pine|catppuccin]   (current: $family)"
+        if not contains -- $argv[1] (__theme_spec families)
+            echo "usage: theme ["(string join '|' (__theme_spec families))"]   (current: $family)"
             return 1
         end
         set family $argv[1]
     end
-    set -Ux THEME_FAMILY $family
 
-    set -l variant light
-    if defaults read -g AppleInterfaceStyle 2>/dev/null | string match -q Dark
-        set variant dark
+    set -l ghostty_dark (__theme_spec $family ghostty-dark)
+    set -l ghostty_light (__theme_spec $family ghostty-light)
+    set -l bat_dark (__theme_spec $family bat-dark)
+    set -l bat_light (__theme_spec $family bat-light)
+    or return 1
+
+    # Custom bat themes are loaded from its binary cache. Rebuild only when a
+    # selected theme is missing (normally just after installing new dotfiles).
+    set -l bat_themes (command bat --list-themes 2>/dev/null)
+    if not contains -- $bat_dark $bat_themes; or not contains -- $bat_light $bat_themes
+        command bat cache --build >/dev/null
+        or begin
+            echo 'theme: failed to rebuild the bat theme cache' >&2
+            return 1
+        end
     end
 
-    switch $family
-        case rose-pine
-            sed -i '' -E 's|^theme = .*|theme = dark:Rose Pine,light:Rose Pine Dawn|' ~/.config/ghostty/config
-        case catppuccin
-            sed -i '' -E 's|^theme = .*|theme = dark:Catppuccin Macchiato,light:Catppuccin Latte|' ~/.config/ghostty/config
-    end
-    killall -USR2 ghostty 2>/dev/null # reload; or Cmd+Shift+, in Ghostty
+    mkdir -p ~/.cache/theme ~/.config/theme
 
-    switch $family
-        case rose-pine
-            sed -i '' -E 's|^--theme-dark=.*|--theme-dark="rose-pine"|; s|^--theme-light=.*|--theme-light="rose-pine-dawn"|' ~/.config/bat/config
-        case catppuccin
-            sed -i '' -E 's|^--theme-dark=.*|--theme-dark="Catppuccin Macchiato"|; s|^--theme-light=.*|--theme-light="Catppuccin Latte"|' ~/.config/bat/config
-    end
+    # Generated application config is cache, never tracked dotfile state.
+    set -l ghostty_config ~/.cache/theme/ghostty.conf
+    set -l ghostty_tmp "$ghostty_config.tmp.$fish_pid"
+    printf 'theme = light:%s,dark:%s\n' $ghostty_light $ghostty_dark >$ghostty_tmp
+    and command mv $ghostty_tmp $ghostty_config
+    or return 1
 
-    # herdr has no appearance detection: set the variant explicitly, then reload.
-    # path resolve → sed edits the repo file, not the stow symlink.
-    set -l herdr_theme
-    switch $family
-        case rose-pine
-            test $variant = dark; and set herdr_theme rose-pine; or set herdr_theme rose-pine-dawn
-        case catppuccin
-            test $variant = dark; and set herdr_theme catppuccin; or set herdr_theme catppuccin-latte
-    end
-    set -l hcfg (path resolve ~/.config/herdr/config.toml)
-    sed -i '' -E "s|^name = \".*\"|name = \"$herdr_theme\"|" $hcfg
-    command -q herdr; and herdr server reload-config >/dev/null 2>&1
+    set -l bat_config ~/.cache/theme/bat.conf
+    set -l bat_tmp "$bat_config.tmp.$fish_pid"
+    printf '%s\n' \
+        '--theme="auto:system"' \
+        "--theme-dark=\"$bat_dark\"" \
+        "--theme-light=\"$bat_light\"" >$bat_tmp
+    and command mv $bat_tmp $bat_config
+    or return 1
 
-    echo "theme → $family · $variant"
-    echo "  ghostty · git · lazygit · bat · herdr synced; nvim live"
-    echo "  (re-run 'theme' after a macOS light/dark toggle to re-sync herdr)"
+    # Publish the family last, after all derived configuration is ready.
+    set -l state ~/.config/theme/family
+    set -l state_tmp "$state.tmp.$fish_pid"
+    printf '%s\n' $family >$state_tmp
+    and command mv $state_tmp $state
+    or return 1
+
+    # Remove the superseded universal-variable source of truth, then reload
+    # Ghostty. Ghostty and bat both handle subsequent appearance changes.
+    set -eU THEME_FAMILY 2>/dev/null
+    killall -USR2 ghostty 2>/dev/null
+
+    echo "theme → $family"
 end

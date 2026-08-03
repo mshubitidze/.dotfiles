@@ -1,15 +1,10 @@
-function lazygit --description 'lazygit, themed by $THEME_FAMILY + macOS appearance'
+function lazygit --description 'lazygit with the current family and appearance overlay'
     set -l dir "$HOME/Library/Application Support/lazygit"
-    set -l family rose-pine
-    set -q THEME_FAMILY; and set family $THEME_FAMILY
-    set -l variant light
-    if defaults read -g AppleInterfaceStyle 2>/dev/null | string match -q Dark
-        set variant dark
-    end
-    set -l overlay "$dir/themes/$family-$variant.yml"
+    set -l overlay "$dir/themes/"(__theme_family)-(__theme_variant)".yml"
     if test -f "$overlay"
-        LG_CONFIG_FILE="$dir/config.yml,$overlay" command lazygit $argv
+        command lazygit --use-config-file="$dir/config.yml,$overlay" $argv
     else
-        command lazygit $argv
+        echo "lazygit: missing theme overlay: $overlay" >&2
+        return 1
     end
 end

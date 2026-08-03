@@ -1,50 +1,126 @@
--- Family from $THEME_FAMILY; light/dark from macOS via auto-dark-mode
--- (polls directly — OSC 11 bg detection doesn't survive herdr/tmux).
+-- Theme family is persistent state written by the `theme` command. Appearance
+-- comes from Neovim's `background`; auto-dark-mode keeps long-running sessions
+-- synchronized with macOS.
+local uv = vim.uv or vim.loop
+local family_file = vim.fn.expand("~/.config/theme/family")
+local families = { ["rose-pine"] = true, catppuccin = true, oxocarbon = true }
+
 local function family()
-  return vim.env.THEME_FAMILY == "catppuccin" and "catppuccin" or "rose-pine"
+  local fd = io.open(family_file, "r")
+  if fd then
+    local value = vim.trim(fd:read("*l") or "")
+    fd:close()
+    if families[value] then
+      return value
+    end
+  end
+  return "rose-pine"
 end
 
-local function apply(bg)
-  vim.o.background = bg
-  pcall(vim.cmd.colorscheme, family())
+local function family_is_active(value)
+  local colorscheme = vim.g.colors_name or ""
+  if value == "catppuccin" then
+    return vim.startswith(colorscheme, "catppuccin")
+  end
+  return colorscheme == value
+end
+
+local function apply_family()
+  local value = family()
+  if not family_is_active(value) then
+    vim.cmd.colorscheme(value)
+  end
+end
+
+-- Oxocarbon's native light selection combines pink text with a mid-gray
+-- background, and Snacks maps picker selection to Visual. Use the family's
+-- primary blue with an explicit contrasting foreground in both variants.
+local function polish_oxocarbon()
+  if vim.g.colors_name ~= "oxocarbon" then
+    return
+  end
+  local light = vim.o.background == "light"
+  local selection = light and { bg = "#0f62fe", fg = "#f2f4f8" } or { bg = "#78a9ff", fg = "#161616" }
+  for _, group in ipairs({ "PmenuSel", "Visual", "TelescopeSelection" }) do
+    vim.api.nvim_set_hl(0, group, selection)
+  end
+  -- Oxocarbon light sets base03 = base00 (#161616), so LSP reference
+  -- highlights (Snacks words) render as near-black blocks. Dark mode's
+  -- blend is fine; only light needs the fix. #e0e0e0 = IBM carbon gray-20.
+  -- Setting all three also covers the theme's typo'd "LspReferenceread".
+  if light then
+    for _, group in ipairs({ "LspReferenceText", "LspReferenceRead", "LspReferenceWrite" }) do
+      vim.api.nvim_set_hl(0, group, { bg = "#e0e0e0" })
+    end
+  end
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", { callback = polish_oxocarbon })
+
+-- A timer is more reliable than a filesystem watcher when the state file is
+-- atomically replaced. It is closed explicitly so it cannot delay shutdown.
+local family_timer = uv.new_timer()
+local function watch_family()
+  if family_timer then
+    family_timer:start(2000, 2000, vim.schedule_wrap(apply_family))
+    vim.api.nvim_create_autocmd("VimLeavePre", {
+      once = true,
+      callback = function()
+        if family_timer and not family_timer:is_closing() then
+          family_timer:stop()
+          family_timer:close()
+        end
+      end,
+    })
+  end
 end
 
 return {
   {
     "folke/snacks.nvim",
     opts = {
-      picker = {
-        sources = {
-          explorer = {
-            hidden = true,
-            ignored = true,
-          },
-        },
-      },
+      -- Snacks natively generates a lazygit theme from the active colorscheme,
+      -- refreshes it on ColorScheme, and configures nvim-remote editing.
+      lazygit = { configure = true },
+      picker = { sources = { explorer = { hidden = true, ignored = true } } },
     },
   },
-  -- { "christoomey/vim-tmux-navigator", enabled = false },
-
   { "rose-pine/neovim", name = "rose-pine", opts = { variant = "auto", dark_variant = "main" } },
   {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = { flavour = "auto", background = { light = "latte", dark = "macchiato" } },
   },
+  { "nyoom-engineering/oxocarbon.nvim", name = "oxocarbon" },
   {
     "f-person/auto-dark-mode.nvim",
     opts = {
       update_interval = 3000,
       set_dark_mode = function()
-        apply("dark")
+        vim.o.background = "dark"
       end,
       set_light_mode = function()
-        apply("light")
+        vim.o.background = "light"
+      end,
+    },
+    config = function(_, opts)
+      require("auto-dark-mode").setup(opts)
+      watch_family()
+    end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = function()
+        vim.cmd.colorscheme(family())
       end,
     },
   },
   {
-    "LazyVim/LazyVim",
-    opts = { colorscheme = family },
+    "mfussenegger/nvim-lint",
+    opts = function(_, opts)
+      opts.linters_by_ft = opts.linters_by_ft or {}
+      opts.linters_by_ft.markdown = nil
+    end,
   },
 }

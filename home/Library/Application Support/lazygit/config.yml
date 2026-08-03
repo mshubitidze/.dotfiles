@@ -3,4 +3,7 @@ git:
   pagers:
     - colorArg: always
       pager: delta-theme --paging=never
-# gui.theme comes from a themes/<family>-<light|dark>.yml overlay (lazygit fish wrapper).
+gui:
+  nerdFontsVersion: "3"
+# gui.theme is layered on from themes/<family>-<light|dark>.yml by the lazygit
+# fish wrapper, and in nvim by snacks (see nvim core.lua).
