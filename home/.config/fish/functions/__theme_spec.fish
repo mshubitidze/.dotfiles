@@ -1,6 +1,6 @@
 function __theme_spec --description 'Theme registry' --argument-names family key
     if test "$family" = families
-        printf '%s\n' rose-pine catppuccin oxocarbon
+        printf '%s\n' rose-pine catppuccin
         return
     end
 
@@ -21,14 +21,6 @@ function __theme_spec --description 'Theme registry' --argument-names family key
             echo 'Catppuccin Macchiato'
         case catppuccin:bat-light
             echo 'Catppuccin Latte'
-        case oxocarbon:ghostty-dark
-            echo 'Oxocarbon Dark'
-        case oxocarbon:ghostty-light
-            echo 'Oxocarbon Light'
-        case oxocarbon:bat-dark
-            echo 'Oxocarbon Dark'
-        case oxocarbon:bat-light
-            echo 'Oxocarbon Light'
         case '*'
             return 1
     end

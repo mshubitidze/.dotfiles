@@ -3,7 +3,7 @@
 -- synchronized with macOS.
 local uv = vim.uv or vim.loop
 local family_file = vim.fn.expand("~/.config/theme/family")
-local families = { ["rose-pine"] = true, catppuccin = true, oxocarbon = true }
+local families = { ["rose-pine"] = true, catppuccin = true }
 
 local function family()
   local fd = io.open(family_file, "r")
@@ -31,31 +31,6 @@ local function apply_family()
     vim.cmd.colorscheme(value)
   end
 end
-
--- Oxocarbon's native light selection combines pink text with a mid-gray
--- background, and Snacks maps picker selection to Visual. Use the family's
--- primary blue with an explicit contrasting foreground in both variants.
-local function polish_oxocarbon()
-  if vim.g.colors_name ~= "oxocarbon" then
-    return
-  end
-  local light = vim.o.background == "light"
-  local selection = light and { bg = "#0f62fe", fg = "#f2f4f8" } or { bg = "#78a9ff", fg = "#161616" }
-  for _, group in ipairs({ "PmenuSel", "Visual", "TelescopeSelection" }) do
-    vim.api.nvim_set_hl(0, group, selection)
-  end
-  -- Oxocarbon light sets base03 = base00 (#161616), so LSP reference
-  -- highlights (Snacks words) render as near-black blocks. Dark mode's
-  -- blend is fine; only light needs the fix. #e0e0e0 = IBM carbon gray-20.
-  -- Setting all three also covers the theme's typo'd "LspReferenceread".
-  if light then
-    for _, group in ipairs({ "LspReferenceText", "LspReferenceRead", "LspReferenceWrite" }) do
-      vim.api.nvim_set_hl(0, group, { bg = "#e0e0e0" })
-    end
-  end
-end
-
-vim.api.nvim_create_autocmd("ColorScheme", { callback = polish_oxocarbon })
 
 -- A timer is more reliable than a filesystem watcher when the state file is
 -- atomically replaced. It is closed explicitly so it cannot delay shutdown.
@@ -91,7 +66,6 @@ return {
     name = "catppuccin",
     opts = { flavour = "auto", background = { light = "latte", dark = "macchiato" } },
   },
-  { "nyoom-engineering/oxocarbon.nvim", name = "oxocarbon" },
   {
     "f-person/auto-dark-mode.nvim",
     opts = {

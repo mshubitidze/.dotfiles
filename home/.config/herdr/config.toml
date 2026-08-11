@@ -5,7 +5,7 @@ pane_history = true
 
 switch_ascii_input_source_in_prefix = true
 [ui.toast]
-delivery = "herdr"
+delivery = "system"
 
 [ui]
 show_agent_labels_on_pane_borders = true
@@ -47,12 +47,6 @@ command = "nvim"
 
 [theme]
 # Resolve semantic UI colors through Ghostty's active 16-color palette.
-name = "terminal"
+name = "catppuccin"
 
 auto_switch = false
-[theme.custom]
-# Herdr's terminal theme uses ANSI bright-black for selected-item contrast,
-# which is too dark in light palettes. ANSI black tracks each theme's first
-# surface layer instead (#262626 in Oxocarbon Dark / #f3f3f3 in Light).
-surface0 = "black"
-surface_dim = "black"

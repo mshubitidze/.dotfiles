@@ -1,7 +1,6 @@
 [include]
 	path = /Users/misho/.config/bat/themes/catppuccin.gitconfig
 	path = ~/.config/git/rose-pine-delta.gitconfig
-	path = ~/.config/git/oxocarbon-delta.gitconfig
 
 [branch]
 	sort = "-committerdate"

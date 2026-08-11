@@ -14,10 +14,6 @@ case "$family" in
 		light=catppuccin-latte
 		dark=catppuccin-macchiato
 		;;
-	oxocarbon)
-		light=oxocarbon-light
-		dark=oxocarbon-dark
-		;;
 	*)
 		printf 'delta-theme: unknown theme family: %s\n' "$family" >&2
 		exit 2
